@@ -13,4 +13,4 @@ migrateRefreshVersionsIfNeeded("0.9.5") // Will be automatically removed by refr
 
 bootstrapRefreshVersions()
 
-rootProject.name="BASetup"
+rootProject.name="AkkaMongoDB"
