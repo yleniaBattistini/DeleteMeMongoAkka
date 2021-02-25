@@ -9,6 +9,6 @@ import org.scalatestplus.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class TestMain extends AnyFunSuite {
   test("Repository should respond an interrogation fo existing patient") {
-    assert(RepositoryImpl().findPatient("Enrico").prettyPrint.nonEmpty)
+    assert(RepositoryImpl().findPatient("Enrico").prettyPrint.length != 0)
   }
 }
