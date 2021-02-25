@@ -24,7 +24,7 @@ dependencies {
     implementation("io.spray:spray-json_2.12:_")
     implementation("com.lightbend.akka:akka-stream-alpakka-mongodb_2.12:_")
     implementation("com.typesafe.akka:akka-stream_2.12:_")
-    implementation("org.scala-lang:scala-library:2.12")
+    //implementation("org.scala-lang:scala-library:2.12")
 
     testImplementation("junit:junit:4.13")
     testImplementation("org.scalatest:scalatest_2.12:_")

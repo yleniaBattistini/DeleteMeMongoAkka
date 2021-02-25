@@ -1,0 +1,27 @@
+name: automerge
+on:
+  push:
+  pull_request:
+    branches: #only in main branch
+      - main
+    types: #
+      - labeled
+      - unlabeled
+      - reopened
+      - unlocked
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge
+        uses: "DanySK/yaagha@master"
+        env:
+          GITHUB_TOKEN: "${{ secrets.AUTOMERGE_TOKEN }}" #Mandatory, GitHub authentication token.
+          MERGE_FORKS: "false" #Whether pull requests coming from repositories other than GITHUB_REPOSITORY should be considered for an automatic merge. Defaults to false. Anything but true (ignoring case) is interpreted as false.
+          MERGE_LABELS: "version-upgrade" #List of comma separated labels that must be present on a pull request for Yaagha to run the merge operation, defaults to automerge.
+          BLOCK_LABELS: "blocked, wontfix, invalid" #List of comma separated labels that, if present, prevents automatic merging. Default empty. Block labels take priority over merge labels.
+          MERGE_METHOD: "rebase" #How to merge, between merge, rebase, and squash. Defaults to merge.
+          CLOSE_ON_CONFLICT: "true" # Closes the pull request if it can't get updated (mergeable state dirty).
+          DELETE_BRANCH_ON_CLOSE: "true" #are set, this flag determines whether the head branch should get deleted. Defaults to false.
+          GIT_USER_NAME: "Enrico Gnagnarella" #Name of the committer, to be used in case of rebase update.
+          GIT_USER_EMAIL: "enrico.gnagnarella@studio.unibo.it"  #Email of the committer, to be used in case of rebase update.
