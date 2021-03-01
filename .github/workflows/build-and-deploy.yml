@@ -88,6 +88,8 @@ jobs:
       - name: CodeCov
         #if: ${{ env.REFERENCE == 'true' }}
         uses: codecov/codecov-action@v1
+        env:
+          CODECOV_TOKEN: "fe41293c-3fc9-4d64-9d04-07f8f103c410"
       - name: Deploy
         if: ${{ env.REFERENCE == 'true' }}
         shell: bash
