@@ -40,8 +40,8 @@ jobs:
 #      # (hence, artifacts from REFERENCE configuration shall be deployed)
 #      # Only one matrix entry should be REFERENCE=true
 #      # If REFERENCE=true, then also COMPATIBLE=true
-#      - shell: bash
-#        run: .github/build-steps/compatibility_check.sh
+      - shell: bash
+        run: .github/build-steps/compatibility_check.sh
       # Install the JDK
       - uses: joschi/setup-jdk@v2.3.0
 #        if: ${{ env.COMPATIBLE == 'true' }}
