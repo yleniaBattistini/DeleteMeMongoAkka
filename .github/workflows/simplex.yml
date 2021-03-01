@@ -27,8 +27,8 @@ jobs:
         run: git fetch --tags -f
       - name: Fetch tags
         run: git fetch --depth=100 origin +refs/tags/*:refs/tags/*
-      -name: Setup scala
-        uses: olafurpg/setup-scala@v10
+#      -name: Setup scala
+#        uses: olafurpg/setup-scala@v10
 #      - name: Populate TAG and BRANCH environment variables
 #        shell: bash
 #        run: |
