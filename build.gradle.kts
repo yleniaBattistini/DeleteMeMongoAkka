@@ -38,6 +38,8 @@ dependencies {
 
 tasks.jacocoTestReport {
     reports {
+        xml.isEnabled = true
+        xml.destination = file("${buildDir}/jacocoXml")
         html.isEnabled = true
         html.destination = file("${buildDir}/jacocoHtml")
     }
