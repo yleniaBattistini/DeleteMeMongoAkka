@@ -1,6 +1,7 @@
 #!/bin/bash
 if [ -x .github/scripts/compatibility_check ]; then
     .github/scripts/compatibility_check
+    echo "this"
 else
     COMPATIBLE=true
     echo "COMPATIBLE=$COMPATIBLE"
