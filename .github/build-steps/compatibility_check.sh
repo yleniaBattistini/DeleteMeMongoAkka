@@ -4,7 +4,7 @@ if [ -x .github/scripts/compatibility_check ]; then
     echo "this"
 else
     COMPATIBLE=true
-    echo "COMPATIBLE=$COMPATIBLE"
+    echo "COMPATIBLE1=$COMPATIBLE"
     echo "COMPATIBLE=$COMPATIBLE" >> $GITHUB_ENV
     REFERENCE=$([ "$OS" = 'ubuntu' ] && [ "$JAVA_VERSION" = 8 ] && echo 'true' || echo 'false')
     echo "REFERENCE=$REFERENCE"
