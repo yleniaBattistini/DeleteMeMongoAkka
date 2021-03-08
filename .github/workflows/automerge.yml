@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: #only in main branch
       - main
-    types: #
-      - labeled
-      - unlabeled
-      - reopened
-      - unlocked
+    #types: #
+      #- labeled
+      #- unlabeled
+      #- reopened
+      #- unlocked
 jobs: #Most similar to Travis's stages.
   automerge:
     runs-on: ubuntu-latest
