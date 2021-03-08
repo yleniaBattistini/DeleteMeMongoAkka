@@ -10,24 +10,29 @@ jobs:
       matrix:
         os: [windows, macos, ubuntu]
         jvm_version: [8, 11, 14]
-    runs-on: ${{ matrix.os }}-latest
+    runs-on: ${{ matrix.os }}-latest #Pro e contro
     env:
+      #The github parser take the variable inside the curly brackets and insert it into its Ruby​interpreter.
       JAVA_VERSION: ${{ matrix.jvm_version }}
       OS: ${{ matrix.os }}
-      TERM: dumb #non capisco il senso
+      TERM: dumb
+    #Steps are like Travis's phase.
     steps:
-      # Checkout the repository
-      - name: Checkout
+        #All the checkout operation are explicitly.
+        #Va a cercare un repo su github che abbia come owner actions, come nome del repo checkout, @ prende il tag v2 ( si può mettere un nome di branch, un commit hash, ecc.)
         uses: actions/checkout@v2
+        #Specified parameters to the actions.
         with:
           fetch-depth: 0
           submodules: recursive
+      #Usato perchè checkput, anche se configurato non tira giù l'ultimo tag per questo motivo non risale alla versione corretta.
       - name: Fetch tags
         shell: bash
         run: git fetch --tags -f
       - name: Populate TAG and BRANCH environment variables
         shell: bash
-        run: |
+        run: #To export environment variables use TAG=$TAG" >> $GITHUB_ENV.
+          |
           TAG=$(git describe --tags --exact-match HEAD || echo '')
           echo "Current tag is: '$TAG' (setup in the TAG environment variable)"
           echo "TAG=$TAG" >> $GITHUB_ENV
@@ -93,7 +98,9 @@ jobs:
 #      - name: Deploy
 #        if: ${{ env.REFERENCE == 'true' }}
 #        shell: bash
+          #To specified the environment variables.
 #        env:
+          #The secrets must be entered in the GitHub Settings.
 #          GITHUB_TOKEN: ${{ secrets.AUTOMERGE_TOKEN }} #${{ secrets.GITHUB_TOKEN }}
 #          githubToken: ${{ secrets.AUTOMERGE_TOKEN }} #
 #          GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }} #
@@ -108,6 +115,7 @@ jobs:
 #        run: .github/build-steps/deploy.sh
   Build-Success:
     runs-on: ubuntu-latest
+    #Needs used when we must wait the other jobs will be completed.
     needs: Build
     steps:
       - shell: bash
@@ -141,5 +149,5 @@ jobs:
           MERGE_METHOD: "rebase"
           CLOSE_ON_CONFLICT: "true"
           DELETE_BRANCH_ON_CLOSE: "true"
-          GIT_USER_NAME: "Enrico Gnagnarella"#"Danilo Pianini"
-          GIT_USER_EMAIL: "enrico.gnagnarella@studio.unibo.it" #"danilo.pianini@gmail.com"
+          GIT_USER_NAME: "Enrico Gnagnarella"
+          GIT_USER_EMAIL: "enrico.gnagnarella@studio.unibo.it"

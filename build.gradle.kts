@@ -8,13 +8,12 @@ plugins {
 
 group = "io.github.enrignagna"
 
-
-
 repositories {
     jcenter()
     mavenLocal()
     mavenCentral()
 }
+
 
 dependencies {
     val scalaVersion = "2.12"
@@ -27,7 +26,7 @@ dependencies {
     implementation("com.typesafe.akka:akka-stream_2.12:_")
     implementation("com.typesafe.akka:akka-slf4j_2.12:_")
     implementation("org.scala-lang:scala-library:2.12")
-
+    compileOnly( "org.scalamacros:paradise_2.12.6:2.1.1")
     testImplementation("junit:junit:4.13")
     testImplementation("org.scalatest:scalatest_2.12:_")
     testImplementation("org.scalatestplus:junit-4-12_2.12:_")
@@ -51,6 +50,23 @@ tasks.jacocoTestReport {
 //    // example usage:
 //    // configFilePath = ".scalafmt.conf"
 //}
+
+tasks.withType<ScalaCompile> {
+    /*scalaCompileOptions.forkOptions.apply {
+        jvmArgs = listOf("-Xfatal-warnings")
+    }*/
+   /* List<String> parameters =
+    configurations.scalaCompilerPlugin.files.collect {
+        '-Xplugin:'+ it.absolutePath
+    }
+
+    parameters += ['-Xfatal-warnings']
+    scalaCompileOptions.additionalParameters = parameters*/
+}
+
+/*tasks.withType<ScalaCompile>() {
+    scalaCompileOptions.additionalParameters = ["-Xfatal-warnings"]
+}*/
 
 gitSemVer {
     version = computeGitSemVer()

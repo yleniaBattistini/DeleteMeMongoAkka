@@ -1,5 +1,7 @@
 name: automerge
+#GitHub Actions is integrated with git hub repository and we can specified more events.
 on:
+  #Triggers the workflow on push or pull request event but only for the main branch.
   push:
   pull_request:
     branches: #only in main branch
@@ -9,11 +11,14 @@ on:
       - unlabeled
       - reopened
       - unlocked
-jobs:
+jobs: #Most similar to Travis's stages.
   automerge:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
+        #Script in Ruby, va a vedere le pull request, guarda in che stato sono, se sono etichettate con etichette configurabili
+        # e se sono corrette, se la pull request è mergibile mergia, se non lo è perché ad esempio non è aggiornata
+        #fa il merge sul branch di destinazione e aggiorna. Se c'è un conflitto chiude la pull request e chiude il branch.
         uses: "DanySK/yaagha@master"
         env:
           GITHUB_TOKEN: "${{ secrets.AUTOMERGE_TOKEN }}" #Mandatory, GitHub authentication token.
