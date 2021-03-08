@@ -7,8 +7,8 @@ on:
     branches: #only in main branch
       - main
     types: #
-     # - labeled
-      #- unlabeled
+      - labeled
+      - unlabeled
       - reopened
       - unlocked
 jobs: #Most similar to Travis's stages.
