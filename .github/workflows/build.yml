@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-      #Usato perchè checkput, anche se configurato non tira giù l'ultimo tag per questo motivo non risale alla versione corretta.
+        #Usato perchè checkput, anche se configurato non tira giù l'ultimo tag per questo motivo non risale alla versione corretta.
       - name: Fetch tags
         shell: bash
         run: git fetch --tags -f
