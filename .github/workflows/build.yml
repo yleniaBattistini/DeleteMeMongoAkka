@@ -135,7 +135,7 @@ jobs:
       - shell: bash
         run: '[ -f ok ]'
   Automerge:
-    needs: CI-Complete
+    needs: Build
     runs-on: ubuntu-latest
     if: always()
     steps:
