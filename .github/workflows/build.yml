@@ -21,7 +21,6 @@ jobs:
         #All the checkout operation are explicitly.
         #Va a cercare un repo su github che abbia come owner actions, come nome del repo checkout, @ prende il tag v2 ( si può mettere un nome di branch, un commit hash, ecc.)
         uses: actions/checkout@v2
-        #Specified parameters to the actions.
         with:
           fetch-depth: 0
           submodules: recursive
