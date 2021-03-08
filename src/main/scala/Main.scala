@@ -5,7 +5,7 @@ import org.mongodb.scala.model.Filters.equal
 import org.mongodb.scala.model.Updates.set
 import spray.json.JsObject
 
-//TODO: Conviene sostituire con id o codice fiscale SONO BELLO
+//TODO: Conviene sostituire con id o codice fiscale
 trait Repository {
 
   def listCollection(): Unit
