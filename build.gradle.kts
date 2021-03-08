@@ -55,7 +55,7 @@ tasks.withType<ScalaCompile> {
     /*scalaCompileOptions.forkOptions.apply {
         jvmArgs = listOf("-Xfatal-warnings")
     }*/
-   /* List<String> parameters =
+   /*List<String> parameters =
     configurations.scalaCompilerPlugin.files.collect {
         '-Xplugin:'+ it.absolutePath
     }

@@ -28,5 +28,5 @@ jobs: #Most similar to Travis's stages.
           MERGE_METHOD: "rebase" #How to merge, between merge, rebase, and squash. Defaults to merge.
           CLOSE_ON_CONFLICT: "true" # Closes the pull request if it can't get updated (mergeable state dirty).
           DELETE_BRANCH_ON_CLOSE: "true" #are set, this flag determines whether the head branch should get deleted. Defaults to false.
-          GIT_USER_NAME: "Enrico Gnagnarella" #Name of the committer, to be used in case of rebase update.
-          GIT_USER_EMAIL: "enrico.gnagnarella@studio.unibo.it"  #Email of the committer, to be used in case of rebase update.
+          GIT_USER_NAME: "Ylenia Battistini"
+            GIT_USER_EMAIL: "ylenia.battistini@studio.unibo.it"  #Email of the committer, to be used in case of rebase update.

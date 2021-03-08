@@ -149,5 +149,5 @@ jobs:
           MERGE_METHOD: "rebase"
           CLOSE_ON_CONFLICT: "true"
           DELETE_BRANCH_ON_CLOSE: "true"
-          GIT_USER_NAME: "Enrico Gnagnarella"
-          GIT_USER_EMAIL: "enrico.gnagnarella@studio.unibo.it"
+          GIT_USER_NAME: "Ylenia Battistini"
+          GIT_USER_EMAIL: "ylenia.battistini@studio.unibo.it"
